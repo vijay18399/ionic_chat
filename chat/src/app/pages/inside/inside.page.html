@@ -1,0 +1,36 @@
+<ion-header translucent>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon name="pizza"></ion-icon>
+       
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>PIZZA CHAT{{ email }}</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="presentActionSheet()">
+        <ion-icon   name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+  <!---- <ion-list-header>
+      Recent Conversations
+    </ion-list-header>--->
+
+    <ion-item *ngFor="let user of users"   routerLink="/chat/{{user.email}}"  >
+      <ion-avatar  slot="start">
+        <img  src="https://ui-avatars.com/api/?name={{user.email}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{user.email}}</h2>
+        <p color="secondary">Online <span>⚈</span> </p>
+      </ion-label>
+    </ion-item>
+</ion-list>
+</ion-content>
